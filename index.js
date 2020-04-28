@@ -50,7 +50,7 @@ router.post('/send', (req, res, next) => {
       transporter.sendMail({
     	from: "quentin.box@orange.fr",
     	to: email,
-    	subject: "Submission was successful",
+    	subject: "Quentin Charlie Portfolio : Message envoyé / Message sent",
     	text: `Merci de m'avoir contacté ! Si votre message nécessite une réponse de ma part (suite à une question ou autre), je ferais au plus vite ! \n\nThank you for contacting me ! If your message need a response from me (question or anything), i'll try to answer you ASAP ! \n\nDétails du formulaire / Form details\nNom / Name: ${name}\nEmail: ${email}\nMessage: ${message}`
       }, 
       function(error, info){
