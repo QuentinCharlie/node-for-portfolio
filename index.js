@@ -32,7 +32,7 @@ router.post('/send', (req, res, next) => {
   var mail = {
     from: name,
     to: 'quentin.box@orange.fr',  // Change to email address that you want to receive messages on
-    subject: 'New Message from Contact Form',
+    subject: 'Portfolio : Nouveau message !',
     text: content
   };
 
