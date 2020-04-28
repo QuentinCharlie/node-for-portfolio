@@ -51,7 +51,7 @@ router.post('/send', (req, res, next) => {
       transporter.sendMail({
     	from: "noreply",
     	to: email,
-    	subject: lang === "fr" ? "Votre message pour Quentin Charlie à été envoyé !" : "Your message to Quentin Charlie was sent !",
+    	subject: lang === "fr" ? "Votre message pour Quentin Charlie a été envoyé !" : "Your message to Quentin Charlie was sent !",
         text: lang === "fr" ? `Merci de m'avoir contacté ! Si votre message nécessite une réponse de ma part (suite à une question ou autre), je ferais au plus vite !
         \n\n
         Ce que vous m'avez envoyé :\n
