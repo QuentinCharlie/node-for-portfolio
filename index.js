@@ -27,6 +27,7 @@ router.post('/send', (req, res, next) => {
   var name = req.body.name;
   var email = req.body.email;
   var message = req.body.message;
+  var lang = req.body.lang;
   var content = `name: ${name} \n email: ${email} \n message: ${message} `;
 
   var mail = {
@@ -50,15 +51,25 @@ router.post('/send', (req, res, next) => {
       transporter.sendMail({
     	from: "noreply",
     	to: email,
-    	subject: "Quentin Charlie Portfolio : Message envoyé / Message sent",
-        text: `Merci de m'avoir contacté ! Si votre message nécessite une réponse de ma part (suite à une question ou autre), je ferais au plus vite !
-        \n
-        Thank you for contacting me ! If your message need a response from me (question or anything), i'll try to answer you ASAP !
+    	subject: lang === "fr" ? "Votre message pour Quentin Charlie à été envoyé !" : "Your message to Quentin Charlie was sent !",
+        text: lang === "fr" ? `Merci de m'avoir contacté ! Si votre message nécessite une réponse de ma part (suite à une question ou autre), je ferais au plus vite !
         \n\n
-        Ce que vous m'avez envoyé / This is what you sent me : \nNom / Name: ${name}\nEmail: ${email}\nMessage: ${message}
+        Ce que vous m'avez envoyé :\n
+         - Nom : ${name}\n
+         - Email: ${email}\n
+         - Message: ${message}
         \n\n
-        Ceci est un message automatique / This is an automated message.`
-      }, 
+        Ceci est un message automatique.` 
+        :
+        `Thank you for contacting me ! If your message need a response from me (question or anything), i'll try to answer you ASAP !
+        \n\n
+        This is what you sent me :\n 
+         - Name: ${name}\n
+         - Email: ${email}\n
+         - Message: ${message}
+        \n\n
+        This is an automated message.`
+      },
       function(error, info){
     	if(error) {
       	    console.log(error);
