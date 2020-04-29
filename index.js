@@ -31,7 +31,7 @@ router.post('/send', (req, res, next) => {
   var content = `name: ${name} \n email: ${email} \n message: ${message} `;
 
   var mail = {
-    from: email,
+    from: name,
     to: 'quentin.box@orange.fr',  // Change to email address that you want to receive messages on
     subject: 'Portfolio : Nouveau message !',
     text: content
